@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>EasyMoto - Contato</title>
+        <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+        <link rel="stylesheet" type="text/css" href="_css/form.css"/>
+        <script language="javascript" src="_javascript/funcoes.js"></script>
+
+        <script>
+            function calc_total() {
+                
+                const valores = {
+                    motobizz:60.00, motocg:70.00, motobross:80.00
+                }
+
+                const modelos = document.getElementById('c-mod');
+                const total = document.getElementById('c-total');
+                const dias = document.getElementById('c-qtd').value;
+
+                const resultado = valores[modelos.options[modelos.selectedIndex].value] * dias;
+                total.value = resultado;
+
+            }
+        </script>
+        
+    </head>
+    <body>
+        <div id="interface">
+            
+            <header id="cabecalho">
+                <hgroup>
+                    <h2>O seu serviço de Transporte</h2>
+                </hgroup>
+
+                <img id="icone" src="_imagens/em-sem-sombra.png"> 
+
+                <nav id="menu">
+                    <h1>Menu Principal</h1>
+                    <ul type="disc">
+                        <li><a href="index_EasyMoto.html">Home</a></li>
+                        <li><a href="descubra.html">Descubra</a></li>
+                        <li><a href="imagens.html">Imagens</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+        <section id="corpo-full">
+
+            <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+                <hgroup>
+                <h3>Fale Conosco > Contato</h3>
+                <h2>Formulário</h2>
+                </hgroup>
+            </header>
+
+            <form method="post" id="fContato" action="mailto:easy.moto@email.com" oninput="calc_total();">
+
+            <fieldset id="usuario">
+
+                <h1 id="txt-topo">Solicite um orçamento adiantado</h1>
+
+                <!-- Topo -->
+
+                <h2>Identificação do Usuário</h2>
+                <p><label for="cNome">Nome: </label><input type="text" name="tNome" id="cNome" size="20" maxlength="50" placeholder="Nome completo"/></p>
+                <p><label for="cSenha">Número Telefone: </label><input type="text" name="tNumero" id="cNumero" size="15" maxlength="15" placeholder="(12)99999-9999"/></p>
+                <p><label for="cMail">E-mail: </label><input type="email" name="tMail" id="cMail" size="20" maxlength="40" placeholder="exemplo@email.com"/></p>
+                <p><label for="cNasc">Data de Nascimento: </label><input type="date" name="tNasc" id="cNasc"/></p>
+
+                <!-- Mensagem -->
+
+                <h2>Mensagem do Usuário</h2>
+                <p><label for="cUrg">Grau de Urgência: </label>Min<input type="range" name="tUrg" id="cUrg" min="0" max="10" step="2"/>Máx</p>
+                <p><label for="cMsg">Mensagem: </label><textarea name="tMsg" id="cMsg" cols="25" rows="5" placeholder="Deixe aqui sua mensagem"></textarea></p>
+
+                <!-- Reserva -->
+
+                <h2>Reserva</h2>
+                <p><input type="checkbox" name="tPed" id="cPed"/> <label id="cPed">Gostaria de reservar uma moto </label></p>
+                <p><label id="cCor">Disponibilidade de cor: Prata <input type="color" name="tCor" id="cCor" value="#c0c0c0"/></label></p>
+                <p><label for="cEst">Modelo: </label>
+                    <select name="tEst" id="c-mod">
+                        <optgroup label="Motos">
+                            <option value="motobizz">Biz - 125</option>
+                            <option value="motocg">CG - 160</option>
+                            <option value="motobross">BROSS - 150</option>
+                        </optgroup>
+                    </select></p>
+                <p><label id="cQtd">Tempo aluguel (dias): </label><input type="number" name="tQtd" id="c-qtd" min="0" max="5" value="0"/></p>
+                <p><label id="cTot">Preço Total: R$</label><input type="text" name="tTot" id="c-total" placeholder="Total a Pagar" readonly/></p>
+
+                <input type="image" name="tEnviar" src="_imagens/botao-enviar.png"/>
+            </fieldset>
+            </form>
+
+        </section>
+
+        <footer id="rodape">
+        <p>Copyright &copy; 2019 - by Easy Moto</br>
+        <a href="http://facebook.com"target="_blank">Facebook</a> | 
+        <a href="https://twitter.com" target="_blank">Twitter</a></p>
+        </footer>
+        </div>
+    </body>
+</html>
